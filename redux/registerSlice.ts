@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { router } from "expo-router";
 import { BASE_API_URL } from "./baseApi";
 import { AppDispatch } from "./store";
 
@@ -40,6 +41,7 @@ export const registerUser =
 
       if (response.status === 201) {
         dispatch(registerSuccess(username));
+        router.replace("/(auth)/login");
       } else {
         dispatch(registerFailure("Registration failed"));
       }
@@ -57,11 +59,13 @@ export const registerSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
+
     registerSuccess: (state, action: PayloadAction<string>) => {
       state.user = action.payload;
       state.isLoading = false;
       state.error = null;
     },
+
     registerFailure: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;

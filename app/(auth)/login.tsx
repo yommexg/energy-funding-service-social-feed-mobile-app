@@ -1,6 +1,6 @@
 import { Image } from "expo-image";
 import { router, useFocusEffect } from "expo-router";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Alert,
   BackHandler,
@@ -15,6 +15,7 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { RootState, useAppDispatch } from "@/redux/store";
+import { useSelector } from "react-redux";
 
 import { loginUser } from "@/redux/loginSlice";
 
@@ -22,14 +23,13 @@ import Spinner from "@/components/Spinner";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { primaryColor } from "@/constants/Colors";
-import { useSelector } from "react-redux";
 
 export default function LoginScreen() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useAppDispatch();
-  const { isLoading } = useSelector((state: RootState) => state.login);
+  const { isLoading, error } = useSelector((state: RootState) => state.login);
 
   const handleBackPress = () => {
     Alert.alert("Exit Social Feed App", "Are you sure you want to quit?", [
@@ -56,6 +56,12 @@ export default function LoginScreen() {
       await dispatch(loginUser(user, password));
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert("Login Error", error);
+    }
+  }, [error]);
 
   return (
     <ThemedView className="flex-1">
