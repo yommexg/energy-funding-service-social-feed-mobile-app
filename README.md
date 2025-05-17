@@ -38,6 +38,6 @@ A responsive and interactive social media feed aggregator built with React Nativ
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yommexg/social-feed-app.git
+   git clone https://github.com/yommexg/energy-funding-service-social-feed-mobile-app.git
    cd social-feed-app
    ```
