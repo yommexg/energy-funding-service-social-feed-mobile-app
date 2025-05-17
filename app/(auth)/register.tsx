@@ -1,6 +1,6 @@
 import { Image } from "expo-image";
 import { router } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Alert,
   KeyboardAvoidingView,
@@ -13,27 +13,43 @@ import {
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import Spinner from "@/components/Spinner";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { primaryColor } from "@/constants/Colors";
+import { registerUser } from "@/redux/registerSlice";
+import { RootState, useAppDispatch } from "@/redux/store";
+import { useSelector } from "react-redux";
 
 export default function RegisterScreen() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleRegister = () => {
+  const dispatch = useAppDispatch();
+  const { isLoading, error } = useSelector(
+    (state: RootState) => state.register
+  );
+
+  const handleRegister = async () => {
     if (!user || !password || !confirmPassword) {
       Alert.alert("Missing Fields", "Please fill in all fields.");
     } else if (password !== confirmPassword) {
       Alert.alert("Password Mismatch", "Passwords do not match.");
-    } else {
-      // register(user, password);
+    } else if (user && password) {
+      await dispatch(registerUser(user, password));
     }
   };
 
+  useEffect(() => {
+    if (error) {
+      Alert.alert("Registration Error", error);
+    }
+  }, [error]);
+
   return (
     <ThemedView className="flex-1">
+      {isLoading && <Spinner />}
       <SafeAreaView className="flex-1">
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}

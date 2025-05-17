@@ -13,7 +13,7 @@ export const Colors = {
   },
   dark: {
     text: "#FFFFFF",
-    background: "#011E52",
+    background: "#000A1F",
     accent: "#A3E57B",
   },
 };

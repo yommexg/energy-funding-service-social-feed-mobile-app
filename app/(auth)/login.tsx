@@ -14,14 +14,22 @@ import {
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { RootState, useAppDispatch } from "@/redux/store";
+
+import { loginUser } from "@/redux/loginSlice";
+
+import Spinner from "@/components/Spinner";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { primaryColor } from "@/constants/Colors";
+import { useSelector } from "react-redux";
 
 export default function LoginScreen() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const isLoading = false;
+
+  const dispatch = useAppDispatch();
+  const { isLoading } = useSelector((state: RootState) => state.login);
 
   const handleBackPress = () => {
     Alert.alert("Exit Social Feed App", "Are you sure you want to quit?", [
@@ -41,16 +49,17 @@ export default function LoginScreen() {
     }, [])
   );
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!user || !password) {
       Alert.alert("Missing Fields", "Please fill in all fields.");
     } else {
-      // register(user, password);
+      await dispatch(loginUser(user, password));
     }
   };
 
   return (
     <ThemedView className="flex-1">
+      {isLoading && <Spinner />}
       <SafeAreaView className="flex-1">
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
