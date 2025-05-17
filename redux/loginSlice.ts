@@ -1,3 +1,4 @@
+import { User } from "@/types/user";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -6,7 +7,7 @@ import { BASE_API_URL } from "./baseApi";
 import { AppDispatch } from "./store";
 
 interface LoginState {
-  user: string | null;
+  user: User | null;
   isLoading: boolean;
   error: string | null;
 }
@@ -21,10 +22,12 @@ export const loadUserFromStorage = () => async (dispatch: AppDispatch) => {
   try {
     const userToken = await AsyncStorage.getItem("userToken");
     if (userToken) {
+      const user: User = JSON.parse(userToken);
+      dispatch(loginSuccess(user));
+
       router.replace({
         pathname: "/(user)",
       });
-      dispatch(loginSuccess(userToken));
     } else {
       router.replace("/(auth)/login");
     }
@@ -43,12 +46,10 @@ export const loginUser =
         `${BASE_API_URL}/users?username=${username}&password=${password}`
       );
 
-      console.log(response.data);
-
       if (response.data.length > 0) {
-        console.log("You");
-        await AsyncStorage.setItem("userToken", username);
-        dispatch(loginSuccess(username));
+        const user = response.data[0];
+        await AsyncStorage.setItem("userToken", JSON.stringify(user));
+        dispatch(loginSuccess(user));
         router.replace({
           pathname: "/(user)",
         });
@@ -74,7 +75,7 @@ export const loginSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
-    loginSuccess: (state, action: PayloadAction<string>) => {
+    loginSuccess: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
       state.isLoading = false;
     },

@@ -1,39 +1,56 @@
-import { FontAwesome6 } from "@expo/vector-icons";
+import { Colors } from "@/constants/Colors";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
-export default function TabLayout() {
+export default function UserLayout() {
+  const colorScheme = useColorScheme();
+  const themeColors = Colors[colorScheme ?? "light"];
+
   return (
-    <>
-      <Tabs
-        screenOptions={{
-          tabBarActiveTintColor: "red",
-          tabBarLabelStyle: {
-            fontSize: 10,
-            fontWeight: "500",
-          },
+    <Tabs
+      screenOptions={({ route }) => {
+        let iconName: keyof typeof Ionicons.glyphMap = "home";
+        let tabBarLabel = "";
+
+        switch (route.name) {
+          case "index":
+            iconName = "home";
+            tabBarLabel = "Home";
+            break;
+          case "explore":
+            iconName = "search";
+            tabBarLabel = "Explore";
+            break;
+          case "post":
+            iconName = "add-circle";
+            tabBarLabel = "Post";
+            break;
+
+          case "profile":
+            iconName = "settings";
+            tabBarLabel = "Profile";
+            break;
+        }
+
+        return {
           headerShown: false,
+          tabBarLabel,
+          tabBarActiveTintColor: themeColors.tabIconActive,
+          tabBarInactiveTintColor: themeColors.tabIconInactive,
           tabBarStyle: {
-            position: "absolute",
-            borderTopLeftRadius: 10,
-            borderTopRightRadius: 10,
+            backgroundColor: themeColors.tabBackground,
             borderTopWidth: 0,
-            backgroundColor: "#1E1E1E",
           },
-        }}>
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: "Artists",
-            tabBarIcon: ({ color, size }) => (
-              <FontAwesome6
-                name="users-line"
-                size={size}
-                color={color}
-              />
-            ),
-          }}
-        />
-      </Tabs>
-    </>
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons
+              name={iconName}
+              size={size}
+              color={color}
+            />
+          ),
+        };
+      }}
+    />
   );
 }
