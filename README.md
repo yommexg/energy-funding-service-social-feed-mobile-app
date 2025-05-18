@@ -129,9 +129,10 @@ A responsive and interactive social media feed aggregator built with React Nativ
 │   ├── store.ts
 │   └── baseApi.ts
 │
-├── /hooks                    # Custom hooks
-│   └── useColorScheme.ts     # Returns "light" or "dark"
-│   └── useColorScheme.web.ts
+├── /hooks                          # Custom hooks
+│   ├── useColorScheme.ts           # Returns "light" or "dark"
+│   ├── useColorScheme.web.ts
+│   ├── useDebounce.ts              # Improves performance and prevents filtering on every keystroke.
 │   └── useThemeColor.ts
 │
 ├── /utils                    # Utility functions/helpers

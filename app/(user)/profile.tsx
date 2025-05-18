@@ -8,19 +8,6 @@ import { primaryColor } from "@/constants/Colors";
 import { logoutUser } from "@/redux/slices/loginSlice";
 import { useAppDispatch } from "@/redux/store";
 
-const ProfileItem = ({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) => (
-  <TouchableOpacity className="flex-row items-center p-4 border-b border-gray-200 dark:border-gray-700">
-    {icon}
-    <ThemedText className="ml-4 text-base">{label}</ThemedText>
-  </TouchableOpacity>
-);
-
 export default function ProfileScreen() {
   const dispatch = useAppDispatch();
 
@@ -31,92 +18,85 @@ export default function ProfileScreen() {
   return (
     <ThemedView className="flex-1">
       <SafeAreaView className="flex-1">
-        <View>
-          <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-            <View className="p-4">
-              <ProfileItem
-                icon={
-                  <Ionicons
-                    name="person-circle-outline"
-                    size={24}
-                    color="gray"
-                  />
-                }
-                label="Edit Profile"
-              />
-              <ProfileItem
-                icon={
-                  <Feather
-                    name="lock"
-                    size={24}
-                    color="gray"
-                  />
-                }
-                label="Change Password"
-              />
-              <ProfileItem
-                icon={
-                  <Ionicons
-                    name="moon"
-                    size={24}
-                    color="gray"
-                  />
-                }
-                label="Appearance"
-              />
-              <ProfileItem
-                icon={
-                  <MaterialIcons
-                    name="privacy-tip"
-                    size={24}
-                    color="gray"
-                  />
-                }
-                label="Privacy Settings"
-              />
-              <ProfileItem
-                icon={
-                  <Ionicons
-                    name="notifications-outline"
-                    size={24}
-                    color="gray"
-                  />
-                }
-                label="Notification Preferences"
-              />
-              <ProfileItem
-                icon={
-                  <Ionicons
-                    name="help-circle-outline"
-                    size={24}
-                    color="gray"
-                  />
-                }
-                label="Help & Support"
-              />
-              <ProfileItem
-                icon={
-                  <Ionicons
-                    name="information-circle-outline"
-                    size={24}
-                    color="gray"
-                  />
-                }
-                label="About"
-              />
-            </View>
-          </ScrollView>
-
+        <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
           <View className="p-4">
-            <TouchableOpacity
-              onPress={handleLogout}
-              style={{ backgroundColor: primaryColor }}
-              className="py-3 rounded-lg items-center">
-              <ThemedText className="text-white font-semibold">
-                Log Out
+            {/* Edit Profile */}
+            <TouchableOpacity className="flex-row items-center p-4 border-b border-gray-200 dark:border-gray-700">
+              <Ionicons
+                name="person-circle-outline"
+                size={24}
+                color="gray"
+              />
+              <ThemedText className="ml-4 text-base">Edit Profile</ThemedText>
+            </TouchableOpacity>
+
+            {/* Change Password */}
+            <TouchableOpacity className="flex-row items-center p-4 border-b border-gray-200 dark:border-gray-700">
+              <Feather
+                name="lock"
+                size={24}
+                color="gray"
+              />
+              <ThemedText className="ml-4 text-base">
+                Change Password
               </ThemedText>
             </TouchableOpacity>
+
+            {/* Privacy Settings */}
+            <TouchableOpacity className="flex-row items-center p-4 border-b border-gray-200 dark:border-gray-700">
+              <MaterialIcons
+                name="privacy-tip"
+                size={24}
+                color="gray"
+              />
+              <ThemedText className="ml-4 text-base">
+                Privacy Settings
+              </ThemedText>
+            </TouchableOpacity>
+
+            {/* Notification Preferences */}
+            <TouchableOpacity className="flex-row items-center p-4 border-b border-gray-200 dark:border-gray-700">
+              <Ionicons
+                name="notifications-outline"
+                size={24}
+                color="gray"
+              />
+              <ThemedText className="ml-4 text-base">
+                Notification Preferences
+              </ThemedText>
+            </TouchableOpacity>
+
+            {/* Help & Support */}
+            <TouchableOpacity className="flex-row items-center p-4 border-b border-gray-200 dark:border-gray-700">
+              <Ionicons
+                name="help-circle-outline"
+                size={24}
+                color="gray"
+              />
+              <ThemedText className="ml-4 text-base">Help & Support</ThemedText>
+            </TouchableOpacity>
+
+            {/* About */}
+            <TouchableOpacity className="flex-row items-center p-4 border-b border-gray-200 dark:border-gray-700">
+              <Ionicons
+                name="information-circle-outline"
+                size={24}
+                color="gray"
+              />
+              <ThemedText className="ml-4 text-base">About</ThemedText>
+            </TouchableOpacity>
           </View>
+        </ScrollView>
+
+        <View className="p-4">
+          <TouchableOpacity
+            onPress={handleLogout}
+            style={{ backgroundColor: primaryColor }}
+            className="py-3 rounded-lg items-center">
+            <ThemedText className="text-white font-semibold">
+              Log Out
+            </ThemedText>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </ThemedView>

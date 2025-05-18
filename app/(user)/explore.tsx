@@ -9,6 +9,7 @@ import Spinner from "@/components/Spinner";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { primaryColor } from "@/constants/Colors";
+import { useDebounce } from "@/hooks/useDebounce";
 import { fetchPosts } from "@/redux/slices/feedSlice";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { Post } from "@/utils/types/post";
@@ -20,6 +21,8 @@ export default function ExploreScreen() {
   );
 
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedQuery = useDebounce(searchQuery, 300);
+
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest" | "popular">(
     "newest"
@@ -33,21 +36,18 @@ export default function ExploreScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
 
-  // Fetch posts on page change or filters applied
+  // Fetch posts on mount and pagination
   useEffect(() => {
     setIsFetchingMore(true);
-
-    // Pass sort/filter params to thunk if you update feedSlice to accept them (optional)
     dispatch(fetchPosts({ page })).finally(() => setIsFetchingMore(false));
   }, [page, dispatch]);
 
-  // Filter & search on posts from Redux store
+  // Filter & sort with debounce
   useEffect(() => {
     let result = [...posts];
 
-    // Search by content or hashtags
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
+    if (debouncedQuery.trim()) {
+      const query = debouncedQuery.toLowerCase();
       result = result.filter(
         (post) =>
           post.post_content.toLowerCase().includes(query) ||
@@ -55,12 +55,10 @@ export default function ExploreScreen() {
       );
     }
 
-    // Filter by type if not 'all'
     if (selectedType !== "all") {
       result = result.filter((post) => post.post_type === selectedType);
     }
 
-    // Sort locally if needed (or sort on backend/feedSlice)
     result = result.sort((a, b) => {
       if (sortOrder === "popular") {
         return b.likes_count - a.likes_count;
@@ -76,16 +74,14 @@ export default function ExploreScreen() {
     });
 
     setFilteredPosts(result);
-  }, [posts, searchQuery, selectedType, sortOrder]);
+  }, [posts, debouncedQuery, selectedType, sortOrder]);
 
-  // Handle loading more when user scrolls near bottom
   const handleEndReached = useCallback(() => {
     if (!isLoading && !isFetchingMore && hasMore) {
       setPage((prev) => prev + 1);
     }
   }, [isLoading, isFetchingMore, hasMore]);
 
-  // Pull to refresh
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     dispatch(fetchPosts({ page: 1 })).finally(() => {
