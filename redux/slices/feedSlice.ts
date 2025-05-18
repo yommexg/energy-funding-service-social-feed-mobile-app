@@ -20,46 +20,77 @@ const initialState: FeedState = {
   hasMore: true,
 };
 
-// Thunk to fetch paginated posts
+// Thunk with pagination, filtering, sorting
 export const fetchPosts = createAsyncThunk<
   { posts: Post[]; totalCount: number },
-  { page: number; limit?: number },
+  {
+    page: number;
+    limit?: number;
+    filters?: Record<string, any>;
+    sortBy?: string;
+  },
   { rejectValue: string }
->("feed/fetchPosts", async ({ page, limit = 10 }, { rejectWithValue }) => {
-  try {
-    const response = await axios.get(`${BASE_API_URL}/posts`);
+>(
+  "feed/fetchPosts",
+  async (
+    { page, limit = 10, filters = {}, sortBy = "created_at" },
+    { rejectWithValue }
+  ) => {
+    try {
+      const response = await axios.get(`${BASE_API_URL}/posts`);
+      let allPosts: Post[] = response.data ?? [];
 
-    // Get all posts from the nested object
-    const allPosts: Post[] = response.data ?? [];
+      // Filtering
+      Object.entries(filters).forEach(([key, value]) => {
+        if (value) {
+          allPosts = allPosts.filter((post) => {
+            const field = post[key as keyof Post];
 
-    // Sort posts by created_at descending (if not sorted)
-    allPosts.sort(
-      (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    );
+            return Array.isArray(field)
+              ? field.includes(value)
+              : field === value;
+          });
+        }
+      });
 
-    // Slice posts for the current page
-    const start = (page - 1) * limit;
-    const paginatedPosts = allPosts.slice(start, start + limit);
+      // Sorting
+      allPosts.sort((a, b) => {
+        const aVal = a[sortBy as keyof Post];
+        const bVal = b[sortBy as keyof Post];
 
-    return { posts: paginatedPosts, totalCount: allPosts.length };
-  } catch (error) {
-    console.error("Fetch posts error:", error);
-    return rejectWithValue("Failed to load posts.");
+        const aDate =
+          typeof aVal === "string" ||
+          typeof aVal === "number" ||
+          aVal instanceof Date
+            ? new Date(aVal).getTime()
+            : 0;
+
+        const bDate =
+          typeof bVal === "string" ||
+          typeof bVal === "number" ||
+          bVal instanceof Date
+            ? new Date(bVal).getTime()
+            : 0;
+
+        return bDate - aDate;
+      });
+
+      // Pagination
+      const start = (page - 1) * limit;
+      const paginatedPosts = allPosts.slice(start, start + limit);
+
+      return { posts: paginatedPosts, totalCount: allPosts.length };
+    } catch (error) {
+      console.error("Fetch posts error:", error);
+      return rejectWithValue("Failed to load posts.");
+    }
   }
-});
+);
 
 const feedSlice = createSlice({
   name: "feed",
   initialState,
-  reducers: {
-    resetFeed(state) {
-      state.posts = [];
-      state.page = 1;
-      state.hasMore = true;
-      state.error = null;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchPosts.pending, (state, action) => {
@@ -72,14 +103,16 @@ const feedSlice = createSlice({
         const { posts, totalCount } = action.payload;
 
         if (action.meta.arg.page === 1) {
-          state.posts = posts; // Replace on first page
+          state.posts = posts;
         } else {
-          state.posts = [...state.posts, ...posts];
+          // Deduplicate by ID
+          const existingIds = new Set(state.posts.map((p) => p.id));
+          const newPosts = posts.filter((p) => !existingIds.has(p.id));
+          state.posts.push(...newPosts);
         }
 
         state.page = action.meta.arg.page;
         state.isLoading = false;
-
         state.hasMore = state.posts.length < totalCount;
       })
       .addCase(fetchPosts.rejected, (state, action) => {
@@ -89,5 +122,4 @@ const feedSlice = createSlice({
   },
 });
 
-export const { resetFeed } = feedSlice.actions;
 export default feedSlice.reducer;
