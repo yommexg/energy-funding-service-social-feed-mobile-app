@@ -53,7 +53,7 @@ export default function LoginScreen() {
     if (!user || !password) {
       Alert.alert("Missing Fields", "Please fill in all fields.");
     } else {
-      await dispatch(loginUser(user, password));
+      await dispatch(loginUser({ username: user, password }));
     }
   };
 

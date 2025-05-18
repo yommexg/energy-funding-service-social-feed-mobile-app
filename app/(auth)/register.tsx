@@ -37,7 +37,12 @@ export default function RegisterScreen() {
     } else if (password !== confirmPassword) {
       Alert.alert("Password Mismatch", "Passwords do not match.");
     } else if (user && password) {
-      await dispatch(registerUser(user, password));
+      await dispatch(
+        registerUser({
+          username: user,
+          password,
+        })
+      );
     }
   };
 

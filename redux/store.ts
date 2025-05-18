@@ -1,12 +1,15 @@
-import loginReducer from "@/redux/slices/loginSlice";
-import registerReducer from "@/redux/slices/registerSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
+
+import feedReducer from "@/redux/slices/feedSlice";
+import loginReducer from "@/redux/slices/loginSlice";
+import registerReducer from "@/redux/slices/registerSlice";
 
 export const store = configureStore({
   reducer: {
     login: loginReducer,
     register: registerReducer,
+    feed: feedReducer,
   },
 });
 
