@@ -9,48 +9,67 @@ export default function UserLayout() {
 
   return (
     <Tabs
-      screenOptions={({ route }) => {
-        let iconName: keyof typeof Ionicons.glyphMap = "home";
-        let tabBarLabel = "";
-
-        switch (route.name) {
-          case "index":
-            iconName = "home";
-            tabBarLabel = "Home";
-            break;
-          case "explore":
-            iconName = "search";
-            tabBarLabel = "Explore";
-            break;
-          case "post":
-            iconName = "add-circle";
-            tabBarLabel = "Post";
-            break;
-
-          case "profile":
-            iconName = "settings";
-            tabBarLabel = "Profile";
-            break;
-        }
-
-        return {
-          headerShown: false,
-          tabBarLabel,
-          tabBarActiveTintColor: themeColors.tabIconActive,
-          tabBarInactiveTintColor: themeColors.tabIconInactive,
-          tabBarStyle: {
-            backgroundColor: themeColors.tabBackground,
-            borderTopWidth: 0,
-          },
-          tabBarIcon: ({ focused, color, size }) => (
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: themeColors.tabIconActive,
+        tabBarInactiveTintColor: themeColors.tabIconInactive,
+        tabBarStyle: {
+          backgroundColor: themeColors.tabBackground,
+          borderTopWidth: 0,
+        },
+      }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color, size }) => (
             <Ionicons
-              name={iconName}
+              name="home"
               size={size}
               color={color}
             />
           ),
-        };
-      }}
-    />
+        }}
+      />
+      <Tabs.Screen
+        name="explore"
+        options={{
+          tabBarLabel: "Explore",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons
+              name="search"
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="post"
+        options={{
+          tabBarLabel: "Post",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons
+              name="add-circle"
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons
+              name="settings"
+              size={size}
+              color={color}
+            />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }

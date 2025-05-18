@@ -8,7 +8,7 @@ A responsive and interactive social media feed aggregator built with React Nativ
 
 - Simulated user authentication (login, signup, logout) using mock APIs
 - Aggregated posts from multiple influencers with text, image, and video content
-- Infinite scrolling with smooth loading placeholders
+- Infinite scrolling with smooth loading placeholders using FlashList (instead of Flatlist) for high-performance feed rendering
 - Mobile-first design using Tailwind CSS with NativeWind
 - Dark/Light theme support
 - Navigation with Expo Router
@@ -135,7 +135,7 @@ A responsive and interactive social media feed aggregator built with React Nativ
 ├── /utils                    # Utility functions/helpers
 │   ├── types/                # Handles General Interfaces for typescript(Users, Feeds)
 │   │   ├── user.ts
-│   │   ├── feed.ts
+│   │   ├── post.ts
 |   └── others/               # Upcoming Utils
 │
 ├── /styles

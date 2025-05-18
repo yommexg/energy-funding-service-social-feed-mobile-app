@@ -4,7 +4,7 @@ export interface Post {
   influencer_name: string;
   post_content: string;
   post_type: "text" | "image" | "video";
-  media_url: string | null;
+  media_url?: string;
   created_at: string;
   hashtags: string[];
   likes_count: number;
