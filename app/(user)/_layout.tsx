@@ -10,7 +10,6 @@ export default function UserLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
         tabBarActiveTintColor: themeColors.tabIconActive,
         tabBarInactiveTintColor: themeColors.tabIconInactive,
         tabBarStyle: {
@@ -29,6 +28,7 @@ export default function UserLayout() {
               color={color}
             />
           ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -42,6 +42,8 @@ export default function UserLayout() {
               color={color}
             />
           ),
+          title: "Search",
+          headerShadowVisible: true,
         }}
       />
       <Tabs.Screen
@@ -55,6 +57,7 @@ export default function UserLayout() {
               color={color}
             />
           ),
+          title: "Add Post",
         }}
       />
       <Tabs.Screen
@@ -68,6 +71,7 @@ export default function UserLayout() {
               color={color}
             />
           ),
+          title: "Account Settings",
         }}
       />
     </Tabs>

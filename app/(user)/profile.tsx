@@ -2,7 +2,6 @@ import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { ScrollView, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import Header from "@/components/Header";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { primaryColor } from "@/constants/Colors";
@@ -32,15 +31,9 @@ export default function ProfileScreen() {
   return (
     <ThemedView className="flex-1">
       <SafeAreaView className="flex-1">
-        <Header />
-
         <View>
           <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
             <View className="p-4">
-              <ThemedText className="text-xl font-bold mb-4">
-                Settings
-              </ThemedText>
-
               <ProfileItem
                 icon={
                   <Ionicons

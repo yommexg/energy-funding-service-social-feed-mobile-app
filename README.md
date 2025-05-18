@@ -111,9 +111,11 @@ A responsive and interactive social media feed aggregator built with React Nativ
 │
 ├── /components               # Reusable UI components
 │   ├── Header.tsx
+│   ├── IndiviudalPostItem.tsx
 │   ├── ThemedText.tsx
 │   ├── ThemedView.tsx
-│   └── Spinner.tsx
+│   ├── Spinner.tsx
+│   └── VideoPlayer.tsx
 │
 ├── /constants               # Theme, colors, bLurhash for expo image etc.
 │   └── Colors.ts

@@ -14,7 +14,7 @@ const PostVideoPlayer = memo(function PostVideoPlayer({
   const [playerStatus, setPlayerStatus] = useState("idle");
 
   const player = useVideoPlayer(uri, (player) => {
-    player.loop = true;
+    player.loop = false;
     if (isPlaying) player.play();
     else player.pause();
   });
