@@ -17,7 +17,7 @@ import Spinner from "@/components/Spinner";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { primaryColor } from "@/constants/Colors";
-import { registerUser } from "@/redux/registerSlice";
+import { registerUser } from "@/redux/slices/registerSlice";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { useSelector } from "react-redux";
 

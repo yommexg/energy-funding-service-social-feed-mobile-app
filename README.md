@@ -89,19 +89,65 @@ A responsive and interactive social media feed aggregator built with React Nativ
 
 ```
 /src
-  /components    # Reusable UI components (ThemedText, ThemedView, Spinner, etc.)
-  /hooks         # Custom hooks (e.g., useColorScheme)
-  /redux         # Redux slices, store, and async thunks
-  /screens       # Screen components (Login, Register, Feed, etc.)
-  /constants     # Colors, theme definitions, etc.
-  /assets        # Images and other static assets
+│
+├── /app
+│   ├── /(auth)               # Authentication flow
+│   │   ├── login.tsx
+│   │   ├── register.tsx
+│   │   └── _layout.tsx       # Auth layout (AuthenticationLayout.tsx)
+│   │
+│   ├── /(user)               # Authenticated area with bottom tabs
+│   │   ├── _layout.tsx       # Tab layout (UserLayout.tsx)
+│   │   ├── index.tsx         # Home tab
+│   │   ├── explore.tsx       # Explore tab
+│   │   ├── post.tsx          # Post tab
+│   │   └── profile.tsx       # Profile tab
+│   │
+│   └── _layout.tsx           # Root layout (wrap with ThemeProvider, Redux Provider, etc.)
+│
+├── /assets                   # Static assets (icons, images)
+│   ├── images/
+│   └── others/               # Upcoming Assets
+│
+├── /components               # Reusable UI components
+│   ├── Header.tsx
+│   ├── ThemedText.tsx
+│   ├── ThemedView.tsx
+│   └── Spinner.tsx
+│
+├── /constants               # Theme, colors, bLurhash for expo image etc.
+│   └── Colors.ts
+│   └── BlurHash.ts
+│
+├── /redux                   # Redux Toolkit setup
+│   ├── slices/
+│   │   ├── loginSlice.ts
+│   │   ├── registerSlice.ts
+│   │   └── feedSlice.ts
+│   ├── store.ts
+│   └── baseApi.ts
+│
+├── /hooks                    # Custom hooks
+│   └── useColorScheme.ts     # Returns "light" or "dark"
+│   └── useColorScheme.web.ts
+│   └── useThemeColor.ts
+│
+├── /utils                    # Utility functions/helpers
+│   ├── types/                # Handles General Interfaces for typescript(Users, Feeds)
+│   │   ├── user.ts
+│   │   ├── feed.ts
+|   └── others/               # Upcoming Utils
+│
+├── /styles
+    └── global.css            # Imports tailwind functionlaity to the app
 ```
 
 ---
 
 ## Redux Slices
 
-- **authSlice:** Manages authentication state with actions for login, logout, and loading.
+- **loginSlice:** Manages authentication state with actions for login, logout, and stores user data.
+  (The stored user is meant to be on a seperate slice but no way to validate token on a mock api.)
 - **registerSlice:** Handles user registration including async API calls.
 - **feedSlice:** Manages social feed data fetching and loading state.
 
@@ -110,7 +156,7 @@ A responsive and interactive social media feed aggregator built with React Nativ
 ## Troubleshooting
 
 - **API not reachable:** Ensure the JSON-server is running and IP address is correctly set for physical devices.
-- **Tailwind classes not working:** Ensure NativeWind v2.0.0 is installed and configured.
+- **Tailwind classes not working:** Ensure NativeWind and Tailwind is installed and configured Properly
 - **Redux errors:** Confirm Redux Toolkit and react-redux are installed and store is correctly provided.
 
 ---

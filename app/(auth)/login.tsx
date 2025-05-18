@@ -17,7 +17,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { RootState, useAppDispatch } from "@/redux/store";
 import { useSelector } from "react-redux";
 
-import { loginUser } from "@/redux/loginSlice";
+import { loginUser } from "@/redux/slices/loginSlice";
 
 import Spinner from "@/components/Spinner";
 import { ThemedText } from "@/components/ThemedText";
