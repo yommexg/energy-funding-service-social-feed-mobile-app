@@ -7,7 +7,6 @@ import { Post } from "@/utils/types/post";
 interface FeedState {
   posts: Post[];
   isLoading: boolean;
-  isLoadingMore: boolean;
   error: string | null;
   page: number;
   hasMore: boolean;
@@ -16,7 +15,6 @@ interface FeedState {
 const initialState: FeedState = {
   posts: [],
   isLoading: false,
-  isLoadingMore: false,
   error: null,
   page: 1,
   hasMore: true,
@@ -68,8 +66,6 @@ const feedSlice = createSlice({
         if (action.meta.arg.page === 1) {
           state.isLoading = true;
           state.error = null;
-        } else {
-          state.isLoadingMore = true;
         }
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
@@ -83,13 +79,11 @@ const feedSlice = createSlice({
 
         state.page = action.meta.arg.page;
         state.isLoading = false;
-        state.isLoadingMore = false;
 
         state.hasMore = state.posts.length < totalCount;
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.isLoading = false;
-        state.isLoadingMore = false;
         state.error = action.payload ?? "Something went wrong.";
       });
   },

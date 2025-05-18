@@ -1,0 +1,612 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "1234",
+      "imageUrl": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    {
+      "id": "6183",
+      "username": "User1",
+      "password": "123",
+      "imageUrl": "https://randomuser.me/api/portraits/women/18.jpg"
+    },
+    {
+      "id": "6fba",
+      "username": "User2",
+      "password": "123",
+      "imageUrl": "https://randomuser.me/api/portraits/men/25.jpg"
+    },
+    {
+      "id": "f975",
+      "username": "Tife",
+      "password": "1234"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+      "post_content": "Just launched my new AI-powered productivity app!",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-17T10:00:00Z",
+      "hashtags": ["#AI", "#productivity"],
+      "likes_count": 128
+    },
+    {
+      "id": "2",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Morning yoga session 🌞🧘‍♀️",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg",
+      "created_at": "2025-05-17T11:00:00Z",
+      "hashtags": ["#fitness", "#yoga"],
+      "likes_count": 204
+    },
+    {
+      "id": "3",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Best ramen in Tokyo 🍜",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+      "created_at": "2025-05-17T12:00:00Z",
+      "hashtags": ["#foodie", "#ramen"],
+      "likes_count": 342
+    },
+    {
+      "id": "4",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "The Amalfi Coast is calling 🌊",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg",
+      "created_at": "2025-05-16T14:00:00Z",
+      "hashtags": ["#travel", "#italy"],
+      "likes_count": 788
+    },
+    {
+      "id": "5",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Kettlebell swings to start the day 💪",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+      "created_at": "2025-05-16T15:30:00Z",
+      "hashtags": ["#workout", "#strength"],
+      "likes_count": 275
+    },
+    {
+      "id": "6",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "Dark mode in production 😎",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/109371/pexels-photo-109371.jpeg",
+      "created_at": "2025-05-16T10:00:00Z",
+      "hashtags": ["#coding", "#devlife"],
+      "likes_count": 190
+    },
+    {
+      "id": "7",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+
+      "post_content": "Reviewing the new Apple Vision Pro 👓",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-15s.mp4",
+      "created_at": "2025-05-16T09:00:00Z",
+      "hashtags": ["#gadgets", "#techreview"],
+      "likes_count": 233
+    },
+    {
+      "id": "8",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Sunset in Bali never disappoints 🌅",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg",
+      "created_at": "2025-05-15T19:30:00Z",
+      "hashtags": ["#bali", "#sunset"],
+      "likes_count": 512
+    },
+    {
+      "id": "9",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Spicy street tacos 🌮🔥",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      "created_at": "2025-05-15T13:00:00Z",
+      "hashtags": ["#tacos", "#foodporn"],
+      "likes_count": 490
+    },
+    {
+      "id": "10",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "React Native vs Flutter? Let’s talk 👀",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-15T08:00:00Z",
+      "hashtags": ["#reactnative", "#flutter"],
+      "likes_count": 123
+    },
+    {
+      "id": "11",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Today’s outfit ✨",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg",
+      "created_at": "2025-05-14T12:00:00Z",
+      "hashtags": ["#ootd", "#style"],
+      "likes_count": 605
+    },
+    {
+      "id": "12",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Waterfall magic in Iceland ❄️",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-20s.mp4",
+      "created_at": "2025-05-13T10:00:00Z",
+      "hashtags": ["#nature", "#iceland"],
+      "likes_count": 420
+    },
+    {
+      "id": "13",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Post-workout smoothie recipe 🥬",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-13T09:00:00Z",
+      "hashtags": ["#health", "#smoothie"],
+      "likes_count": 150
+    },
+    {
+      "id": "14",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Sushi platter that melts in your mouth 🍣",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/3577564/pexels-photo-3577564.jpeg",
+      "created_at": "2025-05-12T18:00:00Z",
+      "hashtags": ["#sushi", "#japanesefood"],
+      "likes_count": 410
+    },
+    {
+      "id": "15",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+
+      "post_content": "Testing ChatGPT’s latest API 🧠",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-12T08:00:00Z",
+      "hashtags": ["#AI", "#OpenAI"],
+      "likes_count": 180
+    },
+    {
+      "id": "16",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Skincare is self-care 🧴✨",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/3373745/pexels-photo-3373745.jpeg",
+      "created_at": "2025-05-11T10:00:00Z",
+      "hashtags": ["#skincare", "#beauty"],
+      "likes_count": 399
+    },
+    {
+      "id": "17",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "Debugging in production is a sport 😅",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-11T09:00:00Z",
+      "hashtags": ["#developer", "#debugging"],
+      "likes_count": 109
+    },
+    {
+      "id": "18",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Croissants fresh out of the oven 🥐",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/3026802/pexels-photo-3026802.jpeg",
+      "created_at": "2025-05-10T08:00:00Z",
+      "hashtags": ["#baking", "#pastry"],
+      "likes_count": 300
+    },
+    {
+      "id": "19",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Safari moments in Kenya 🐘",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/667205/pexels-photo-667205.jpeg",
+      "created_at": "2025-05-09T16:00:00Z",
+      "hashtags": ["#wildlife", "#kenya"],
+      "likes_count": 444
+    },
+    {
+      "id": "20",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Runway ready 💃",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-30s.mp4",
+      "created_at": "2025-05-08T14:00:00Z",
+      "hashtags": ["#fashion", "#model"],
+      "likes_count": 689
+    },
+    {
+      "id": "21",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+
+      "post_content": "Exploring new frontiers in quantum computing.",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-08T10:30:00Z",
+      "hashtags": ["#quantum", "#computing"],
+      "likes_count": 134
+    },
+    {
+      "id": "22",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "post_content": "HIIT workout done! Feeling strong 💥",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg",
+      "created_at": "2025-05-08T09:00:00Z",
+      "hashtags": ["#HIIT", "#fitness"],
+      "likes_count": 250
+    },
+    {
+      "id": "23",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Homemade chocolate cake recipe 🍰",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-25s.mp4",
+      "created_at": "2025-05-07T18:00:00Z",
+      "hashtags": ["#baking", "#chocolate"],
+      "likes_count": 380
+    },
+    {
+      "id": "24",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Hiking the Grand Canyon 🏞️",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/248771/pexels-photo-248771.jpeg",
+      "created_at": "2025-05-07T15:00:00Z",
+      "hashtags": ["#hiking", "#grandcanyon"],
+      "likes_count": 512
+    },
+    {
+      "id": "25",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "Writing clean code is an art 🎨",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-07T12:00:00Z",
+      "hashtags": ["#coding", "#cleanCode"],
+      "likes_count": 178
+    },
+    {
+      "id": "26",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Fall fashion trends 🍂",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg",
+      "created_at": "2025-05-06T17:00:00Z",
+      "hashtags": ["#fashion", "#fall"],
+      "likes_count": 570
+    },
+    {
+      "id": "27",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+
+      "post_content": "Exploring edge computing in IoT devices.",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-06T11:00:00Z",
+      "hashtags": ["#IoT", "#edgeComputing"],
+      "likes_count": 147
+    },
+    {
+      "id": "28",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Smoothie bowl breakfast 🍓",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/4052874/pexels-photo-4052874.jpeg",
+      "created_at": "2025-05-06T08:30:00Z",
+      "hashtags": ["#breakfast", "#healthy"],
+      "likes_count": 230
+    },
+    {
+      "id": "29",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Street food adventures in Mexico City 🌮",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      "created_at": "2025-05-05T19:00:00Z",
+      "hashtags": ["#streetfood", "#mexico"],
+      "likes_count": 460
+    },
+    {
+      "id": "30",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Sunrise over the Himalayas 🏔️",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/769743/pexels-photo-769743.jpeg",
+      "created_at": "2025-05-05T06:30:00Z",
+      "hashtags": ["#himalayas", "#sunrise"],
+      "likes_count": 520
+    },
+    {
+      "id": "31",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "Pair programming session highlights.",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-18s.mp4",
+      "created_at": "2025-05-04T12:00:00Z",
+      "hashtags": ["#pairProgramming", "#coding"],
+      "likes_count": 160
+    },
+    {
+      "id": "32",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Accessorizing is key 🔑",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg",
+      "created_at": "2025-05-04T14:00:00Z",
+      "hashtags": ["#accessories", "#fashion"],
+      "likes_count": 515
+    },
+    {
+      "id": "33",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+
+      "post_content": "New Raspberry Pi projects in progress.",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-05-03T10:00:00Z",
+      "hashtags": ["#raspberrypi", "#DIY"],
+      "likes_count": 143
+    },
+    {
+      "id": "34",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "post_content": "Evening meditation time 🧘",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-12s.mp4",
+      "created_at": "2025-05-03T19:00:00Z",
+      "hashtags": ["#meditation", "#wellness"],
+      "likes_count": 210
+    },
+    {
+      "id": "35",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Brunch with friends at this cozy cafe ☕",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/3756523/pexels-photo-3756523.jpeg",
+      "created_at": "2025-05-02T11:00:00Z",
+      "hashtags": ["#brunch", "#friends"],
+      "likes_count": 400
+    },
+    {
+      "id": "36",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Exploring the streets of Paris 🇫🇷",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
+      "created_at": "2025-05-01T14:00:00Z",
+      "hashtags": ["#paris", "#travel"],
+      "likes_count": 560
+    },
+    {
+      "id": "37",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "Refactoring legacy code, wish me luck!",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-04-30T09:00:00Z",
+      "hashtags": ["#coding", "#refactoring"],
+      "likes_count": 140
+    },
+    {
+      "id": "38",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "post_content": "Vintage vibes today 🕰️",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/2535854/pexels-photo-2535854.jpeg",
+      "created_at": "2025-04-29T17:00:00Z",
+      "hashtags": ["#vintage", "#fashion"],
+      "likes_count": 580
+    },
+    {
+      "id": "39",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+
+      "post_content": "Exploring AI-generated art.",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
+      "created_at": "2025-04-28T12:00:00Z",
+      "hashtags": ["#AIart", "#digital"],
+      "likes_count": 210
+    },
+    {
+      "id": "40",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "influencer_pic": "https://randomuser.me/api/portraits/women/18.jpg",
+      "post_content": "Trail running in the mountains 🏃‍♀️",
+      "post_type": "video",
+      "media_url": "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+      "created_at": "2025-04-27T08:00:00Z",
+      "hashtags": ["#running", "#mountains"],
+      "likes_count": 230
+    },
+    {
+      "id": "41",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Italian pasta night 🍝",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg",
+      "created_at": "2025-04-26T19:00:00Z",
+      "hashtags": ["#pasta", "#italianfood"],
+      "likes_count": 410
+    },
+    {
+      "id": "42",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Boat ride in Venice 🚤",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/1619311/pexels-photo-1619311.jpeg",
+      "created_at": "2025-04-25T14:00:00Z",
+      "hashtags": ["#venice", "#travel"],
+      "likes_count": 540
+    },
+    {
+      "id": "43",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "Deploying my first serverless app!",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-04-24T10:00:00Z",
+      "hashtags": ["#serverless", "#cloud"],
+      "likes_count": 195
+    },
+    {
+      "id": "44",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "post_content": "Sunglasses season is here 😎",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg",
+      "created_at": "2025-04-23T12:00:00Z",
+      "hashtags": ["#sunglasses", "#summer"],
+      "likes_count": 620
+    },
+    {
+      "id": "45",
+      "influencer_id": "inf_001",
+      "influencer_name": "TechSavvy",
+
+      "influencer_pic": "https://randomuser.me/api/portraits/men/25.jpg",
+
+      "post_content": "Using Kubernetes for container orchestration.",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-04-22T15:00:00Z",
+      "hashtags": ["#kubernetes", "#containers"],
+      "likes_count": 160
+    },
+    {
+      "id": "46",
+      "influencer_id": "inf_002",
+      "influencer_name": "FitQueen",
+      "post_content": "Yoga retreat vibes 🧘‍♀️",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg",
+      "created_at": "2025-04-21T09:00:00Z",
+      "hashtags": ["#yoga", "#wellness"],
+      "likes_count": 240
+    },
+    {
+      "id": "47",
+      "influencer_id": "inf_003",
+      "influencer_name": "FoodieFrank",
+      "post_content": "Street tacos are life 🌮",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
+      "created_at": "2025-04-20T18:00:00Z",
+      "hashtags": ["#tacos", "#streetfood"],
+      "likes_count": 455
+    },
+    {
+      "id": "48",
+      "influencer_id": "inf_004",
+      "influencer_name": "TravelTina",
+      "post_content": "Camping under the stars ✨",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+      "created_at": "2025-04-19T21:00:00Z",
+      "hashtags": ["#camping", "#stars"],
+      "likes_count": 480
+    },
+    {
+      "id": "49",
+      "influencer_id": "inf_005",
+      "influencer_name": "CodeMaster",
+      "post_content": "Debugging session success!",
+      "post_type": "text",
+      "media_url": null,
+      "created_at": "2025-04-18T16:00:00Z",
+      "hashtags": ["#debugging", "#coding"],
+      "likes_count": 185
+    },
+    {
+      "id": "50",
+      "influencer_id": "inf_006",
+      "influencer_name": "StyleGoddess",
+      "post_content": "Summer dress collection 👗",
+      "post_type": "image",
+      "media_url": "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg",
+      "created_at": "2025-04-17T14:00:00Z",
+      "hashtags": ["#summer", "#fashion"],
+      "likes_count": 600
+    }
+  ]
+}

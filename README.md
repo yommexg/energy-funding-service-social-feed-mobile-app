@@ -62,7 +62,7 @@ A responsive and interactive social media feed aggregator built with React Nativ
    Make sure your `db.json` is at the root or update the path accordingly.
 
    ```bash
-   json-server --watch ../db.json --port 3001
+   json-server --watch db.json --port 3001
    ```
 
    > **Important:** If testing on a physical device, replace `localhost` with your computer’s local IP address (e.g., `http://192.168.x.x:3001`).
