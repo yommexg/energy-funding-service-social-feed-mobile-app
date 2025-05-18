@@ -1,10 +1,11 @@
-import { BASE_API_URL } from "@/redux/baseApi";
-import { AppDispatch } from "@/redux/store";
-import { User } from "@/utils/types/user";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { router } from "expo-router";
+
+import { BASE_API_URL } from "@/redux/baseApi";
+import { AppDispatch } from "@/redux/store";
+import { User } from "@/utils/types/user";
 
 interface LoginState {
   user: User | null;
@@ -65,6 +66,9 @@ export const loginUser =
 export const logoutUser = () => async (dispatch: AppDispatch) => {
   await AsyncStorage.removeItem("userToken");
   dispatch(logout());
+  router.replace({
+    pathname: "/(auth)/login",
+  });
 };
 
 export const loginSlice = createSlice({

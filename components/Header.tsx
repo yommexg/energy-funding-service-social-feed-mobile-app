@@ -24,7 +24,7 @@ const Header = () => {
       <View className="flex-row items-center gap-4">
         <Image
           source={require("@/assets/images/icon.png")}
-          style={{ width: 60, height: 60, borderRadius: 40 }}
+          style={{ width: 60, height: 60, borderRadius: 4 }}
           contentFit="contain"
           placeholder={blurhash}
         />

@@ -1,5 +1,5 @@
 import Spinner from "@/components/Spinner";
-import { loadUserFromStorage } from "@/redux/loginSlice";
+import { loadUserFromStorage } from "@/redux/slices/loginSlice";
 import { useAppDispatch } from "@/redux/store";
 import { useEffect, useState } from "react";
 

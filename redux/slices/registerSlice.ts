@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { router } from "expo-router";
-import { BASE_API_URL } from "./baseApi";
-import { AppDispatch } from "./store";
+
+import { BASE_API_URL } from "@/redux/baseApi";
+import { AppDispatch } from "@/redux/store";
 
 interface RegisterState {
   user: string | null;
