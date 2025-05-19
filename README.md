@@ -7,20 +7,26 @@ A responsive and interactive social media feed aggregator built with React Nativ
 ## Features
 
 - Simulated user authentication (login, signup, logout) using mock APIs
-- Aggregated posts from multiple influencers with text, image, and video content
-- Infinite scrolling with smooth loading placeholders using FlashList (instead of Flatlist) for high-performance feed rendering
-- Mobile-first design using Tailwind CSS with NativeWind
+- Aggregated posts from multiple influencers with text, image, and video content using mock APIs
+- Infinite scrolling with smooth loading placeholders using FlashList from "@shopify/flash-list"" (instead of Flatlist) for high-performance feed rendering
+- Mobile-app design using Tailwind CSS with NativeWind
+- Animations with react-native-reanimated
 - Dark/Light theme support
 - Navigation with Expo Router
 - Modular, reusable components
-- State management with Redux Toolkit
+- State management and Error Management with Redux Toolkit
+- Nice Error Message display to user with "Alert" from React Native
 - API interactions with Axios
-- Authentication state persistence using AsyncStorage
+- Authentication state persistence with user stored using AsyncStorage ("@react-native-async-storage/async-storage")
+- Picking videos or images from the device gallery or camera using "expo-image-picker"
+- Previewing selected media using "expo-video" and "expo-image"
+- Use of "react-native-safe-area-context" to keep your UI properly positioned and unobstructed on devices with notches, curved edges, or home indicators.
 
 ---
 
 ## Tech Stack
 
+- React
 - React Native
 - Expo & Expo Router
 - NativeWind (Tailwind CSS for React Native)
@@ -79,9 +85,9 @@ A responsive and interactive social media feed aggregator built with React Nativ
 
 - Use the app on iOS simulator, Android emulator, or physical device.
 - Register a new user via the Register screen.
-- Login with existing credentials.
+- Login with existing credentials. (Case Sensitive).
 - Browse the aggregated social media feed with infinite scroll.
-- Toggle between dark and light themes based on system settings.
+- Toggle between dark and light themes based on system device settings.
 
 ---
 
@@ -107,7 +113,7 @@ A responsive and interactive social media feed aggregator built with React Nativ
 │
 ├── /assets                   # Static assets (icons, images)
 │   ├── images/
-│   └── others/               # Upcoming Assets
+│   └── others/               # Upcoming Assets (Prevents Folder Collapse)
 │
 ├── /components               # Reusable UI components
 │   ├── Header.tsx
@@ -136,10 +142,10 @@ A responsive and interactive social media feed aggregator built with React Nativ
 │   └── useThemeColor.ts
 │
 ├── /utils                    # Utility functions/helpers
-│   ├── types/                # Handles General Interfaces for typescript(Users, Feeds)
+│   ├── types/                # Handles General Interfaces for typescript(Users, Posts)
 │   │   ├── user.ts
 │   │   ├── post.ts
-|   └── others/               # Upcoming Utils
+|   └── others/               # Upcoming Utils (Prevents Folder Collapse)
 │
 ├── /styles
     └── global.css            # Imports tailwind functionlaity to the app
@@ -152,7 +158,7 @@ A responsive and interactive social media feed aggregator built with React Nativ
 - **loginSlice:** Manages authentication state with actions for login, logout, and stores user data.
   (The stored user is meant to be on a seperate slice but no way to validate token on a mock api.)
 - **registerSlice:** Handles user registration including async API calls.
-- **feedSlice:** Manages social feed data fetching and loading state.
+- **feedSlice:** Manages social post data fetching and loading state.
 
 ---
 

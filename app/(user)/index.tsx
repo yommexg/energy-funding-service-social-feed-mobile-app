@@ -73,7 +73,6 @@ export default function HomeScreen() {
 
   return (
     <ThemedView className="flex-1">
-      {/* <SafeAreaView className="flex-1"> */}
       <Header />
       {isLoading && page === 1 && <Spinner />}
       <FlashList
@@ -96,7 +95,6 @@ export default function HomeScreen() {
         onViewableItemsChanged={onViewableItemsChanged.current}
         viewabilityConfig={viewabilityConfig}
       />
-      {/* </SafeAreaView> */}
     </ThemedView>
   );
 }
