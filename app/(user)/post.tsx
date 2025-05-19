@@ -42,6 +42,8 @@ export default function PostScreen() {
       return;
     }
     console.log("Post submitted:", { text, media });
+    setText("");
+    setMedia(null);
   };
 
   return (
