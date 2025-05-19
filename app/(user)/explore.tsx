@@ -126,43 +126,45 @@ export default function ExploreScreen() {
             placeholderTextColor="#aaa"
           />
 
-          {/* Sorting Buttons */}
-          <View className="rounded-lg mb-4 px-4">
-            <View className="flex-row justify-between mb-6 pl-4 pr-6 pt-5">
-              {["newest", "oldest", "popular"].map((order) => (
-                <TouchableOpacity
-                  key={order}
-                  onPress={() => setSortOrder(order as typeof sortOrder)}
-                  className="px-2 py-1 rounded-lg"
-                  style={{
-                    backgroundColor:
-                      sortOrder === order ? primaryColor : "transparent",
-                  }}>
-                  <ThemedText
-                    className={sortOrder === order ? "font-bold" : ""}>
-                    {order.charAt(0).toUpperCase() + order.slice(1)}
-                  </ThemedText>
-                </TouchableOpacity>
-              ))}
-            </View>
+          <View className="bg-gray-100 mx-4 mb-2 dark:bg-slate-800">
+            {/* Sorting Buttons */}
+            <View className="rounded-lg mb-4 px-4">
+              <View className="flex-row justify-between mb-6 pl-4 pr-6 pt-5">
+                {["newest", "oldest", "popular"].map((order) => (
+                  <TouchableOpacity
+                    key={order}
+                    onPress={() => setSortOrder(order as typeof sortOrder)}
+                    className="px-4 py-2 rounded-lg"
+                    style={{
+                      backgroundColor:
+                        sortOrder === order ? primaryColor : "transparent",
+                    }}>
+                    <ThemedText
+                      className={sortOrder === order ? "font-bold" : ""}>
+                      {order.charAt(0).toUpperCase() + order.slice(1)}
+                    </ThemedText>
+                  </TouchableOpacity>
+                ))}
+              </View>
 
-            {/* Type Filter Buttons */}
-            <View className="flex-row justify-between mb-4 px-4">
-              {["all", "image", "video"].map((type) => (
-                <TouchableOpacity
-                  key={type}
-                  onPress={() => setSelectedType(type as typeof selectedType)}
-                  className="px-4 py-1 rounded-lg"
-                  style={{
-                    backgroundColor:
-                      selectedType === type ? primaryColor : "transparent",
-                  }}>
-                  <ThemedText
-                    className={selectedType === type ? "font-bold" : ""}>
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
-                  </ThemedText>
-                </TouchableOpacity>
-              ))}
+              {/* Type Filter Buttons */}
+              <View className="flex-row justify-between mb-4 px-4">
+                {["all", "image", "video"].map((type) => (
+                  <TouchableOpacity
+                    key={type}
+                    onPress={() => setSelectedType(type as typeof selectedType)}
+                    className="px-6 py-2 rounded-lg"
+                    style={{
+                      backgroundColor:
+                        selectedType === type ? primaryColor : "transparent",
+                    }}>
+                    <ThemedText
+                      className={selectedType === type ? "font-bold" : ""}>
+                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                    </ThemedText>
+                  </TouchableOpacity>
+                ))}
+              </View>
             </View>
           </View>
 

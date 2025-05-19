@@ -84,7 +84,7 @@ export default function RegisterScreen() {
                   placeholderTextColor="#aaa"
                   value={user}
                   onChangeText={setUser}
-                  className="bg-neutral-800 text-white px-4 py-3 rounded-2xl mb-4 border border-neutral-700"
+                  className="dark:bg-neutral-800 dark:text-white px-4 py-3 rounded-2xl mb-4 border dark:border-neutral-700"
                 />
               </Animated.View>
 
@@ -96,7 +96,7 @@ export default function RegisterScreen() {
                   secureTextEntry
                   value={password}
                   onChangeText={setPassword}
-                  className="bg-neutral-800 text-white px-4 py-3 rounded-2xl mb-4 border border-neutral-700"
+                  className="dark:bg-neutral-800 dark:text-white px-4 py-3 rounded-2xl mb-4 border dark:border-neutral-700"
                 />
               </Animated.View>
 
@@ -108,7 +108,7 @@ export default function RegisterScreen() {
                   secureTextEntry
                   value={confirmPassword}
                   onChangeText={setConfirmPassword}
-                  className="bg-neutral-800 text-white px-4 py-3 rounded-2xl mb-4 border border-neutral-700"
+                  className="dark:bg-neutral-800 dark:text-white px-4 py-3 rounded-2xl mb-4 border dark:border-neutral-700"
                 />
               </Animated.View>
 
