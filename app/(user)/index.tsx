@@ -1,7 +1,6 @@
 import { FlashList } from "@shopify/flash-list";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { View, ViewToken } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
 
 import Header from "@/components/Header";
@@ -74,30 +73,30 @@ export default function HomeScreen() {
 
   return (
     <ThemedView className="flex-1">
-      <SafeAreaView className="flex-1">
-        <Header />
-        {isLoading && page === 1 && <Spinner />}
-        <FlashList
-          data={posts}
-          keyExtractor={(item) => item.id}
-          renderItem={renderPost}
-          estimatedItemSize={500}
-          contentContainerStyle={{ paddingBottom: 100 }}
-          onEndReached={handleEndReached}
-          onEndReachedThreshold={0.7}
-          ListFooterComponent={
-            isFetchingMore ? (
-              <View className="mt-10">
-                <Spinner />
-              </View>
-            ) : null
-          }
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-          onViewableItemsChanged={onViewableItemsChanged.current}
-          viewabilityConfig={viewabilityConfig}
-        />
-      </SafeAreaView>
+      {/* <SafeAreaView className="flex-1"> */}
+      <Header />
+      {isLoading && page === 1 && <Spinner />}
+      <FlashList
+        data={posts}
+        keyExtractor={(item) => item.id}
+        renderItem={renderPost}
+        estimatedItemSize={500}
+        contentContainerStyle={{ paddingBottom: 100 }}
+        onEndReached={handleEndReached}
+        onEndReachedThreshold={0.7}
+        ListFooterComponent={
+          isFetchingMore ? (
+            <View className="mt-10">
+              <Spinner />
+            </View>
+          ) : null
+        }
+        refreshing={refreshing}
+        onRefresh={onRefresh}
+        onViewableItemsChanged={onViewableItemsChanged.current}
+        viewabilityConfig={viewabilityConfig}
+      />
+      {/* </SafeAreaView> */}
     </ThemedView>
   );
 }

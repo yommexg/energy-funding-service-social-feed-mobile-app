@@ -2,15 +2,15 @@ import { useVideoPlayer, VideoView } from "expo-video";
 import { memo, useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 
-type PostVideoPlayerProps = {
+type VideoPlayerProps = {
   uri: string;
   isPlaying: boolean;
 };
 
-const PostVideoPlayer = memo(function PostVideoPlayer({
+const VideoPlayer = memo(function VideoPlayer({
   uri,
   isPlaying,
-}: PostVideoPlayerProps) {
+}: VideoPlayerProps) {
   const [playerStatus, setPlayerStatus] = useState("idle");
 
   const player = useVideoPlayer(uri, (player) => {
@@ -59,4 +59,4 @@ const PostVideoPlayer = memo(function PostVideoPlayer({
   );
 });
 
-export default PostVideoPlayer;
+export default VideoPlayer;

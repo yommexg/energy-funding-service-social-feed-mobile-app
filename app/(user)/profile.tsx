@@ -86,18 +86,18 @@ export default function ProfileScreen() {
               <ThemedText className="ml-4 text-base">About</ThemedText>
             </TouchableOpacity>
           </View>
-        </ScrollView>
 
-        <View className="p-4">
-          <TouchableOpacity
-            onPress={handleLogout}
-            style={{ backgroundColor: primaryColor }}
-            className="py-3 rounded-lg items-center">
-            <ThemedText className="text-white font-semibold">
-              Log Out
-            </ThemedText>
-          </TouchableOpacity>
-        </View>
+          <View className="p-4 mt-10">
+            <TouchableOpacity
+              onPress={handleLogout}
+              style={{ backgroundColor: primaryColor }}
+              className="py-3 rounded-lg items-center">
+              <ThemedText className="text-white font-semibold">
+                Log Out
+              </ThemedText>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
       </SafeAreaView>
     </ThemedView>
   );

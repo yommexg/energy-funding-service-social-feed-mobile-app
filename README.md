@@ -100,8 +100,8 @@ A responsive and interactive social media feed aggregator built with React Nativ
 │   │   ├── _layout.tsx       # Tab layout (UserLayout.tsx)
 │   │   ├── index.tsx         # Home tab
 │   │   ├── explore.tsx       # Explore tab
-│   │   ├── post.tsx          # Post tab
-│   │   └── profile.tsx       # Profile tab
+│   │   ├── post.tsx          # Post tab  (Logic Not Implemented because of backend Limitation)
+│   │   └── profile.tsx       # Profile tab (Some Logic Not Implemented because of backend Limitation)
 │   │
 │   └── _layout.tsx           # Root layout (wrap with ThemeProvider, Redux Provider, etc.)
 │

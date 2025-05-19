@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <View
-      className="px-5 py-4 rounded-b-2xl bg-transparent shadow-black shadow-opacity-30 shadow-xl shadow-offset-y-1 flex-row items-center justify-between"
+      className="px-5 pt-16 py-4 rounded-b-2xl bg-transparent shadow-black shadow-opacity-30 shadow-xl shadow-offset-y-1 flex-row items-center justify-between"
       style={{
         backgroundColor: backgroundHeaderColor,
       }}>
